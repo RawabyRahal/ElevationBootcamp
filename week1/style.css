@@ -1,0 +1,71 @@
+div {
+    width: 50%;
+    height: 50px;
+    background-color: #e74c3c;
+  }
+
+  ul {
+    color: red;
+  }
+
+  h1 {
+    font-family: "Helvetica";
+  }
+
+  .heading {
+    font-weight: bold;
+    vertical-align: middle;
+  }
+  
+  .tomato {
+    color: tomato;
+  }
+  
+  .gross-color {
+    color: #a3c010;
+  }
+  
+  .nice-color {
+    color: #03bbbb;
+  }
+
+  #about-me {
+    font-family: sans-serif;
+  }
+
+  button:hover {
+    background-color: blue;
+    color: black;
+    border: 1px solid black;
+  }  
+
+  div {
+    width: 200px;
+    height: 200px;
+    background-color: red;
+    border: 5px solid magenta;
+  }
+
+  .songs-container {
+    background-color: green;
+    border: 25px solid red;
+  }
+
+  #rock-songs {
+    background-color: orange;
+    border: 10px solid blue;
+  }
+  .panel #rock-songs {
+    background-color: gray;
+  }
+  
+  #rock-songs {
+    background-color: orange;
+    border: 10px solid blue;
+ }
+ div {
+  width: 200px;
+  height: 200px;
+  background-color: red !important;
+  border: 5px solid magenta;
+}

@@ -1,0 +1,113 @@
+/* Here we've use the grid-template-areas,
+because the overall layout is static! Everything inside though, that's a different story
+ */
+#chat {
+    display: grid;
+    height: 100vh;
+    grid-template-columns: 1fr 4fr;
+    grid-template-rows: 15fr 1fr;
+    grid-template-areas:
+        "f c"
+        "f i";
+}
+
+#friends {
+    grid-area: f;
+    display: grid;
+    background-color: purple;
+    grid-gap: 6px;
+    
+}
+
+.friend {
+    /* grid-template-rows: 1fr 9fr; */
+    height: 5vh;
+    width: 40vh;
+    /* display: grid; */
+    background-color: #833471;
+    justify-content: start;
+    align-content: center;
+    margin-left: 8px;
+    margin-bottom: 10px;
+    padding-left: 5px;
+    padding-top: 3px;
+
+}
+
+#chatbox {
+    grid-area: c;
+    display: grid;
+    background-color: lightgray;
+    grid-gap: 10px;
+}
+
+#input-container {
+    grid-template-columns: 4fr 1fr;
+    grid-area: i;
+    display: grid;
+    padding-top: -10px;
+
+}
+
+.send-btn {
+    display: grid;
+    align-content: center;
+    justify-content: center;
+    background-color: blueviolet;
+    color: white;
+    /* grid-template-rows: 1fr 1fr; */
+}
+
+
+
+.text-container {
+
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 3fr 1fr;
+    grid-template-areas:
+        "m m t";
+    align-items: end;
+    /* justify-self: auto; */
+    margin-top: 7vh;
+    /* width: fit-content; */
+    height: fit-content;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.left {
+    align-items: end;
+    background-color: gray;
+    margin-left: 10px;
+    justify-self: start;
+    border-radius: 5px;
+    /* width: fit-content; */
+}
+
+.right {
+    margin-right: 10px;
+    background-color: green;
+    justify-self: end;
+    border-radius: 5px;
+    margin-bottom: 10px;
+
+}
+
+.time {
+    color: black;
+    font-size: 10px;
+    /* display: grid; */
+    /* align-content: end; */
+    grid-area: t;
+    /* justify-content: end; */
+}
+
+.text {
+    grid-area: m;
+    color: black;
+    font-size: 15px;
+    /* display: grid;
+    align-content: top;
+    justify-content: start; */
+}

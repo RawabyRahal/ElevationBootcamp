@@ -1,0 +1,26 @@
+body{
+    background-color:gray;
+}
+
+#first{
+    background-color: green;
+    display: inline-block;
+    height: 50px;
+    width: 50px;
+    border: 2px solid black;
+}
+
+#second{
+    background-color: orangered;
+    display: inline-block;
+    height: 50px;
+    width: 50px;
+    border: 2px solid black;
+
+}
+
+button{
+    background-color: lightgreen;
+    border-color: darkgreen;
+    border-bottom-color: darkgreen;
+}

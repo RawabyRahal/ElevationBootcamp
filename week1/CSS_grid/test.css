@@ -1,0 +1,87 @@
+/* #container{
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+} */
+
+
+#container {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-template-areas:
+    /* "h h h h h h"
+    "f f m s s s"
+    "f f m s s s"
+    "f f m s s s"
+    "f f m s s s"; */
+
+    /* "s s s s s s"
+    "f f f m m h"
+    "f f f m m h"
+    "f f f m m h"
+    "f f f m m h"; */
+
+    "h h f f s s"
+    "h h f f s s"
+    "h h . . s s"
+    "h h m m s s"
+    "h h m m s s";
+
+    /* grid-gap: 10px */
+}
+
+.head {
+    background-color: yellow;
+    grid-area: h
+}
+
+.side-nav {
+    background-color: orange;
+    grid-area: s
+}
+
+.main {
+    background-color: aqua;
+    grid-area: m
+}
+
+.foot {
+    background-color: gray;
+    grid-area: f
+}
+
+
+/* .head {
+    height: 70px;
+    width: 90%;
+    right: 0;
+    position: absolute;
+    background-color: #a29bfe;
+    display: inline-block;
+
+}
+
+.side-nav {
+    height: 500px;
+    ;
+    width: 10%;
+    background-color: #6c5ce7;
+    display: inline-block;
+}
+
+.main {
+    position: absolute;
+    display: inline-block;
+    width: 100%;
+}
+
+.inner-content {
+    position: absolute;
+    top: 70px;
+    height: 430px;
+    width: 90%;
+    background-color: red;
+} */

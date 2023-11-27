@@ -1,0 +1,94 @@
+#example{
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    margin-left: 100px;
+    margin-right: 100px;
+    margin-top: 100px;
+    margin: 100px
+  }
+
+  /* if you want to push your div from all sides at once, you can just do margin: 100px */
+
+  #example2{
+    width: 100px;
+    height: 100px;
+    background-color: blue;
+    margin-left: 100px;
+    margin-right: 100px;
+    margin-top: 100px;
+    margin: 100px
+  }
+  
+
+  /* parent: red, child1: blue, child2: green */
+  #parent {
+    background-color: red;
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    }
+    .child {
+    width: 100px;
+    height: 100px;
+    }
+    #child1 {
+    /* top: 200px;
+    left: 200px; */
+    background-color: blue;
+    position: absolute;
+    right: 0
+    }
+    #child2 {
+    background-color: green;
+  }
+  #child3 {
+    background-color: yellow;
+    position: absolute;
+    bottom: 0;
+  }
+    #child4 {
+      background-color: purple;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+    }
+    #child5 {
+      background-color: white;
+      position: absolute;
+      margin-left: 100px;
+      /* left: 0; */
+    }
+/* suggested solution */
+/* #parent{
+	background-color: red;
+	width: 300px;
+	height: 300px;
+  position: relative;
+}
+
+.child {
+	width: 100px;
+	height: 100px;
+  position: absolute;
+}
+
+#child1 {
+	background-color: blue;
+}
+
+#child2{
+  right: 0;
+	background-color: green;
+}
+
+#child3 {
+  bottom: 0;
+  background-color: gold;
+}
+
+#child4 {
+  bottom : 0;
+  right: 0;
+  background-color: purple;
+} */
