@@ -4,6 +4,7 @@ $("button").on("click", function () {
     // $("body").append(Q)
     let divCopy = $("<div > <li class='human'>" + $("#my-input").val() + "</li></div>")
     $("#people").append(divCopy)
+    $("#my-input").val('')
     $('.human').on('click', function () {
         $(this).remove(".human")
     })

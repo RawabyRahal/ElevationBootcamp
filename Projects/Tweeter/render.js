@@ -26,15 +26,26 @@ const Renderer = function () {
         $('#posts').innerHTML = ''
         for (let p of posts) {
             console.log(p.text)
-            let divPost = $("<br><div class= 'post' id=" + p.id +'>' + p.text + "</div><br>")
+            let divPost = $("<br><div class= 'post' id=" + p.id +'>' + "<div class= 'post-text'>"+p.text + "</div></div><br>")
             $('#posts').append(divPost)
 
             for(let c of p.comments){
-                let divComment = $("<div calss='post-text'>").text(c.text)
+                const deletX ="<span class= delete-comment >x</span>"
+                
+                // $("<div calss='post-text'>").text()+$(deletX + "</div>")
+                let divComment = $("<div class= 'comments' id=" + p.id +'>' + deletX + " " + c.text +"</div>")
                 $('#' + p.id).append(divComment)
             }
+            const newtext = "<input classs = text type=text placeholder= comment? >"
+            //    newtext.addClass("text")
+               const newbtn = "<button>comment</button>"
+               $("#"+p.id).append(newtext)
+               $("#"+p.id).append(newbtn)
+               const delBtn = "<br><br><button class = delete> delete comment</button>"
+               $("#"+p.id).append(delBtn)
         }
     }
+
 
     return { renderPosts: renderPosts }
 }
