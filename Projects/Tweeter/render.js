@@ -23,26 +23,29 @@ const _posts =
 const Renderer = function () {
 
     const renderPosts = function (posts) {
+        $('#posts').empty()
         $('#posts').innerHTML = ''
+
         for (let p of posts) {
             console.log(p.text)
-            let divPost = $("<br><div class= 'post' id=" + p.id +'>' + "<div class= 'post-text'>"+p.text + "</div></div><br>")
+            let divPost = $("<br><div class= 'post' id=" + p.id + '>' + "<div class= 'post-text'>" + p.text + "</div></div><br>")
             $('#posts').append(divPost)
+            $("#posts").val('')
+            
 
-            for(let c of p.comments){
-                const deletX ="<span class= delete-comment >x</span>"
-                
-                // $("<div calss='post-text'>").text()+$(deletX + "</div>")
-                let divComment = $("<div class= 'comments' id=" + p.id +'>' + deletX + " " + c.text +"</div>")
+            for (let c of p.comments) {
+                const deletX = "<span class= delete-comment >x</span>"
+                // <input type="text" placeholder="What's on your mind?" id="input">
+                let divComment = $("<div class= 'comments'  id=" +c.id +">" + deletX + " " + c.text + "</div>")
                 $('#' + p.id).append(divComment)
             }
-            const newtext = "<input classs = text type=text placeholder= comment? >"
-            //    newtext.addClass("text")
-               const newbtn = "<button>comment</button>"
-               $("#"+p.id).append(newtext)
-               $("#"+p.id).append(newbtn)
-               const delBtn = "<br><br><button class = delete> delete comment</button>"
-               $("#"+p.id).append(delBtn)
+
+            const newtext = "<input  id =input"+p.id + " placeholder= comment? calss = 'text'>"
+            const newbtn = "<button id=btn"+p.id+" class='commentbtn'>comment</button>"
+            $("#" + p.id).append(newtext)
+            $("#" + p.id).append(newbtn)
+            const delBtn = "<br><br><button id=del"+p.id+" class = delete>Delete Post</button>"
+            $("#" + p.id).append(delBtn)
         }
     }
 
@@ -50,6 +53,3 @@ const Renderer = function () {
     return { renderPosts: renderPosts }
 }
 
-const render = Renderer()
-
-render.renderPosts(_posts)
