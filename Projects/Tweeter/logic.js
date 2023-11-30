@@ -1,3 +1,7 @@
+const ONE = 1
+const THREE = 3
+const SEVEN = 7
+
 const Tweeter = function () {
 
     let postIdCounter = 3;
@@ -46,7 +50,6 @@ const Tweeter = function () {
         let newComment = ({ id: "c" + commentIdCounter, text: text })
 
         for (let i in _posts) {
-            // _posts[postID].comments.push(newCo}mment)
             if (_posts[i].id == postID) {
                 _posts[i].comments.push(newComment)
             }

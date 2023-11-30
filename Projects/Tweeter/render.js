@@ -28,28 +28,32 @@ const Renderer = function () {
 
         for (let p of posts) {
             console.log(p.text)
-            let divPost = $("<br><div class= 'post' id=" + p.id + '>' + "<div class= 'post-text'>" + p.text + "</div></div><br>")
-            $('#posts').append(divPost)
-            $("#posts").val('')
-            
+            let divPost = $("<details id = 'plist' ><summary>Post no. "+ p.id + "</summary><br><div class= 'post' id=" + p.id + '>' + "<div class= 'post-text'>" + p.text + "</div></div><br></details>")
 
+            $('#posts').append(divPost)
+            $("#input").val('')
+
+            let commentList = $(`<details id = 'clist' open><summary>Comment List</summary></details>`);
+            $('#' + p.id).append(commentList)
+            ;
             for (let c of p.comments) {
                 const deletX = "<span class= delete-comment >x</span>"
-                // <input type="text" placeholder="What's on your mind?" id="input">
-                let divComment = $("<div class= 'comments'  id=" +c.id +">" + deletX + " " + c.text + "</div>")
-                $('#' + p.id).append(divComment)
+                let divComment = $("<div class= 'comments'  id=" + c.id + ">" + deletX + " " + c.text + "</div>")
+                commentList.append(divComment)
             }
 
-            const newtext = "<input  id =input"+p.id + " placeholder= comment? calss = 'text'>"
-            const newbtn = "<button id=btn"+p.id+" class='commentbtn'>comment</button>"
+            const newtext = "<input  id =input" + p.id + " placeholder= comment? calss = 'text'>"
+            const newbtn = "<button id=btn" + p.id + " class='commentbtn'>comment</button>"
             $("#" + p.id).append(newtext)
             $("#" + p.id).append(newbtn)
-            const delBtn = "<br><br><button id=del"+p.id+" class = delete>Delete Post</button>"
+            const delBtn = "<br><br><button id=del" + p.id + " class = delete>Delete Post</button>"
             $("#" + p.id).append(delBtn)
+
+            $("#" + p.id).find('details').attr('open', false);
         }
     }
 
-
+    
     return { renderPosts: renderPosts }
 }
 

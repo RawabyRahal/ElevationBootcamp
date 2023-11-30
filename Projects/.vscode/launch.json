@@ -7,8 +7,9 @@
         {
             "type": "chrome",
             "request": "launch",
-            "name": "Open tweeter.html",
-            "file": "c:\\Users\\מוחמד\\Desktop\\ElevationBootcamp\\Projects\\Tweeter\\tweeter.html"
+            "name": "Launch Chrome against localhost",
+            "url": "http://localhost:8080",
+            "webRoot": "${workspaceFolder}"
         }
     ]
 }
