@@ -1,7 +1,8 @@
-// const THREE = 3
 const tweeter = Tweeter()
-const renderer = Renderer()
-renderer.renderPosts(tweeter.getPosts())
+// const renderer = Renderer()
+// renderer.renderPosts(tweeter.getPosts())
+
+renderPosts(tweeter.getPosts())
 
 // add eventlistener to tweeter btn
 
@@ -10,15 +11,14 @@ $("#post").on("click", function () {
     console.log(tweet)
 
     if (tweet.length === 0) {
-        alert("Empty Field!")
-        return
+        return alert("Empty Field!")
     }
     tweeter.addPost(tweet)
-    renderer.renderPosts(tweeter.getPosts())
+    // renderer.renderPosts(tweeter.getPosts())
+    renderPosts(tweeter.getPosts())
 })
 
 
-// alert($(this).attr('id').slice(3)); 
 
 // Add comment
 $("#posts").on("click", '.commentbtn', function () {
@@ -26,18 +26,12 @@ $("#posts").on("click", '.commentbtn', function () {
     const comment = $("#input" + postId).val()
 
     if (comment.length === 0) {
-        alert("Empty Field!")
-        return
+        return alert("Empty Field!")
     }
     tweeter.addComment(comment, postId)
-    renderer.renderPosts(tweeter.getPosts())
-
-    const pList = document.getElementById('plist')
-    pList.setAttribute('open', true);
-
-
-    const commentList = document.getElementById('clist')
-    commentList.setAttribute('open', true);
+    // renderer.renderPosts(tweeter.getPosts())
+    renderPosts(tweeter.getPosts())
+  
 })
 
 // Delete Post
@@ -46,7 +40,8 @@ $("#posts").on("click", '.delete', function () {
     if (confirm("Are you sure you want to delete this post?")) {
         console.log("Deleted Successfully!");
         tweeter.removePost(postId)
-        renderer.renderPosts(tweeter.getPosts())
+        // renderer.renderPosts(tweeter.getPosts())
+        renderPosts(tweeter.getPosts())
     }
 })
 
@@ -57,14 +52,15 @@ $("#posts").on("click", '.delete-comment', function () {
     const commentId = $(this).closest(".comments").attr('id')
     if (confirm("Are you sure you want to delete this comment?")) {
         tweeter.removeComment(postId, commentId)
-        renderer.renderPosts(tweeter.getPosts())
-
+        // renderer.renderPosts(tweeter.getPosts())
+        renderPosts(tweeter.getPosts())
 
         const pList = document.getElementById('plist')
         pList.setAttribute('open', true);
-
 
         const commentList = document.getElementById('clist')
         commentList.setAttribute('open', true);
     }
 })
+
+

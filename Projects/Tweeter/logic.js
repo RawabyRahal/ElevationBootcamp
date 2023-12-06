@@ -1,11 +1,12 @@
-const ONE = 1
+// => I've to delete it cz in futer perhaps we need more than one post to splice
+const ONE = 1 
 const THREE = 3
 const SEVEN = 7
 
 const Tweeter = function () {
 
-    let postIdCounter = 3;
-    let commentIdCounter = 7;
+    let postIdCounter = THREE;
+    let commentIdCounter = SEVEN;
     const _posts =
         [
             {
@@ -41,7 +42,7 @@ const Tweeter = function () {
     const removePost = function (postID) {
         for (let i in _posts) {
             if (_posts[i].id === postID) {
-                _posts.splice(i, 1);
+                _posts.splice(i, ONE);
             }
         }
     }
@@ -62,7 +63,7 @@ const Tweeter = function () {
             if (_posts[i].id === postID) {
                 for (let c in _posts[i].comments) {
                     if (_posts[i].comments[c].id == commentID) {
-                        _posts[i].comments.splice(c, 1);
+                        _posts[i].comments.splice(c, ONE);
                     }
                 }
             }

@@ -1,34 +1,35 @@
-body{
+body {
     background-color: #ecf0f1;
     font-family: 'Balthazar', serif;
 }
 
-#container{
+#container {
     display: grid;
     grid-gap: 20px;
     padding-left: 25px;
     padding-right: 25px;
     grid-template-columns: 3fr 1fr;
-    grid-template-areas: 
-    "h .""i b""p p"
+    grid-template-areas:
+        "h ." "i b" "p p"
 }
 
-#header{
+#header {
     grid-area: h;
     color: #3498db;
 }
 
-#input{
+#input {
     grid-area: i;
     padding: 10px;
     font-size: 1.5vw;
+    font-family: 'Balthazar', serif;
 }
 
-#posts{
+#posts {
     grid-area: p;
 }
 
-#post{
+#post {
     grid-area: b;
     padding: 10px;
     background-color: #3498db;
@@ -40,27 +41,27 @@ body{
     font-size: 2.5vw;
 }
 
-.post{
+.post {
     box-shadow: 1px 1px 3px;
     margin: 10px;
     border-radius: 5px;
     padding: 10px;
 }
 
-#post:active{
+#post:active {
     background-color: #2980b9
 }
 
-.post-text{
+.post-text {
     font-weight: bold;
 }
 
-.comments{
+.comments {
     margin-left: 10px;
     margin: 10px;
 }
 
-.delete{
+.delete {
     cursor: pointer;
     color: #ecf0f1;
     background-color: #e74c3c;
@@ -70,25 +71,7 @@ body{
     font-size: 0.8em;
 }
 
-.delete-comment{
+.delete-comment {
     cursor: pointer;
     color: #e74c3c;
-}
-
-
-
-.toast {
-    background-color: #f8d7da; /* Bootstrap's alert-danger background color */
-    color: #721c24; /* Bootstrap's alert-danger text color */
-    border: 1px solid #f5c6cb; /* Bootstrap's alert-danger border color */
-    border-radius: 0.25rem; /* Bootstrap's alert border radius */
-    padding: 0.75rem; /* Bootstrap's alert padding */
-    margin-bottom: 1rem; /* Bootstrap's alert margin bottom */
-    width: 300px; /* Adjust the width as needed */
-}
-
-.toast-success {
-    background-color: #d4edda; /* Bootstrap's alert-success background color */
-    color: #155724; /* Bootstrap's alert-success text color */
-    border: 1px solid #c3e6cb; /* Bootstrap's alert-success border color */
 }

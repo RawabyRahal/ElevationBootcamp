@@ -1,0 +1,75 @@
+#game {
+    display: grid;
+    height: 110vh;
+    grid-template-rows: 1fr 15fr;
+    grid-template-areas:
+        "t t t"
+        "s s s"
+        "e e e";
+}
+
+.time {
+    grid-area: t;
+    display: grid;
+    background-color: green;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.space {
+    grid-area: s;
+    /* display: grid; */
+    background-color: wheat;
+    height: 95vh;
+    width: 215vh;
+}
+
+.events {
+    grid-area: e;
+    display: grid;
+    background-color: green;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas:
+        "ln st fl"
+}
+
+.levelnumber {
+    grid-area: ln;
+    /* display: grid; */
+    justify-content: center;
+    align-items: center;
+    display: inline-block;
+    padding: 10px;
+
+}
+
+#start {
+    grid-area: st;
+    /* display: grid; */
+    background-color: lightgreen;
+    justify-content: center;
+    align-items: center;
+    display:block;
+    padding: 10px;
+    width: 80%;
+    /* border-color: lightgreen; */
+    font-weight: 1000;
+}
+
+.frogsleft {
+    grid-area: fl;
+    /* display: grid; */
+    /* background-color: blueviolet; */
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    display: inline-block;
+}
+
+.frog {
+    position: block;
+    font-size: 30px;
+    height: 10%;
+    width: 10%;
+}
