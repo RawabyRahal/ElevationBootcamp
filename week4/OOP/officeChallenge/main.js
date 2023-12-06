@@ -66,7 +66,7 @@ class Office {
 
         for(let m in this.managers){
             this.managers[m].askEmployeesToWork(this)
-            console.log('test');
+            console.log('test12');
         }
     }
 }
