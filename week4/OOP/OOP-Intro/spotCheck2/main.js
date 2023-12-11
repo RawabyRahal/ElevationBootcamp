@@ -8,4 +8,4 @@ class Human  {
 }
 
 const h1 = new Human("Fares" , 50 , true)
-console.log('Name: ' + h1.name + "age: " + h1.age + " and u r " + h1.isFriendly);
+console.log('Name: ' + h1.name + ", age: " + h1.age + " and u r " + (h1.isFriendly ? 'freindly' : 'not freindly'));

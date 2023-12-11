@@ -1,5 +1,3 @@
-//write your code here to make the tests pass
-
 class Document {
     constructor(EmployeeName) {
         this.EmployeeName = EmployeeName

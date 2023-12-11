@@ -1,5 +1,7 @@
+
 class Vehicle{
-    Vehicle.carsSold = 0;
+    
+    
     constructor(x, y, speed) {
         this.x = x;
         this.y = y;
@@ -16,4 +18,5 @@ class Vehicle{
     }
 }
 
+Vehicle.carsSold = 0;
 Vehicle.calculateMoney()

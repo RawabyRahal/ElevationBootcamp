@@ -10,7 +10,7 @@ class Animal {
 }
 
 const Dog = new Animal("Husky" , 4)
-console.log("dog's name: " Dog.name);
+console.log("dog's name: "+ Dog.name);
 
 const cat = new Animal("Puss", 4)
 cat.giveBirth("Dolly") // prints "Boom. Birthed Dolly"
