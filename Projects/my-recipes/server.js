@@ -3,6 +3,7 @@ const express = require('express')
 const path = require('path')
 const bodyParser = require('body-parser')
 const recipesAPI = require('./routes/recipesAPI')
+const favoriteRecipesAPI = require('./routes/favAPI')
 
 const app = express()
 
@@ -14,6 +15,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 
 
 app.use('/recipes', recipesAPI)
+app.use('/', favoriteRecipesAPI)
 
 
 const port = 8585

@@ -8,13 +8,16 @@ img {
 li {
   font-size: 10px;
 }
-.card{
+
+.card {
   align-items: center;
 }
-.card-text{
+
+.card-text {
   font-weight: bold;
   font-size: 14px;
 }
+
 h4 {
   font-size: 20px;
   padding: 10px;
@@ -31,20 +34,23 @@ body {
   align-items: center;
   margin-bottom: 20px;
 }
+
 #filter-container {
   display: block;
   justify-content: center;
   align-items: center;
   margin-bottom: 20px;
-  margin-left: 68vh;
+  margin-left: 62vh;
 }
+
 #search {
   width: 200px;
   padding: 10px;
   border: 2px solid #007bff;
   border-radius: 5px 0 0 5px;
   outline: none;
-  transition: width 0.3s ease-in-out; /* Added transition for width */
+  transition: width 0.3s ease-in-out;
+  /* Added transition for width */
 }
 
 #searchbtn {
@@ -54,41 +60,157 @@ body {
   border: 2px solid #007bff;
   border-radius: 0 5px 5px 0;
   cursor: pointer;
-  transition: background-color 0.3s ease-in-out; /* Added transition for background-color */
+  transition: background-color 0.3s ease-in-out;
+  /* Added transition for background-color */
 }
 
 #search:hover {
-  width: 250px; /* Increase width on hover */
+  width: 250px;
+  /* Increase width on hover */
 }
 
 #searchbtn:hover {
   background-color: #0056b3;
 }
 
-a{
+a {
   /* margin-left: 40px; */
   padding-bottom: 20px;
   font-size: 12px;
-  color:red
+  color: red
 }
 
-#howitworks{
+#howitworks {
   font-size: 15px;
   font-weight: bold;
   color: darkgreen;
 
   margin-bottom: 5px;
 }
-.card-title{
+
+.card-title {
   padding-top: 20px;
 }
 
 .category-label {
   font-size: 11px;
   font-weight: bold;
-  margin-right: 5px; /* Optional: Add some spacing between label and value */
+
 }
-.card-text2{
+
+.category-label-text {
+  font-size: 11px;
+  margin-left: 3px;
+}
+
+.card-text2 {
   /* font-weight: bold; */
   font-size: 11px;
+  /* display: flex; */
+    /* justify-content: space-between; */
+}
+
+.form-check-label {
+  font-size: 12px;
+
+}
+
+.fas.fa-glass-milk {
+  color: green;
+  /* Change the color to green */
+  font-size: 24px;
+  /* Change the font size to 24 pixels */
+}
+
+#multi-input {
+  width: 250px;
+  margin-right: 10px;
+}
+
+#multi-search-container {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+#multi-search-container {
+  display: flex;
+  align-items: center;
+}
+
+/* #multi-input {
+  flex-grow: 1;
+  margin-right: 10px;
+} */
+
+#multisearchbtn {
+  background-color: darkgreen;
+  color: white;
+  border: none;
+  padding: 13px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#multisearchbtn:hover {
+  background-color: #45a049;
+}
+
+
+.card-text-row {
+  display: flex;
+  align-items: center;
+}
+
+.card-text2 {
+  margin-right: 20px;
+}
+
+.instruction-text {
+  font-size: 11px;
+  padding: 15px;
+}
+
+.summary {}
+
+details>summary {
+  font-size: 13px;
+  font-weight: bold;
+  padding: 15px;
+  margin-right: 190px;
+}
+
+.red-color {
+  color: red !important;
+}
+
+.bookmarkIcon {
+  color: black;
+  padding-top: 15px;
+  margin-left: 280px;
+}
+
+#favoritebtn {
+  background-color: burlywood;
+  color: white;
+  border: none;
+  padding: 13px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 11px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+#favoritebtn:hover {
+  background-color: #45a049;
+}
+
+.favorite {
+  color: red !important;
 }
