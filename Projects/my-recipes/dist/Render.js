@@ -28,7 +28,6 @@ class Renderer {
 
     renderRecipes = function (data) {
         recipesList.empty()
-
         let newHtml = templateRecipes({ recipes: data })
         recipesList.append(newHtml)
     }

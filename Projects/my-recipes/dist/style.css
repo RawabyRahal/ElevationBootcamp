@@ -214,3 +214,25 @@ details>summary {
 .favorite {
   color: red !important;
 }
+
+
+
+#next, #prev {
+  background-color: rgb(89, 206, 89);
+  color: white;
+  border: none;
+  padding: 5px 15px;
+  text-align: center;
+  text-decoration: none;
+  /* display: inline-block;  */
+  font-size: 11px;
+  float: right;
+}
+
+#next:hover, #prev:hover {
+  background-color: #45a049;
+}
+
+#prev {
+  margin-right: 10px;
+}

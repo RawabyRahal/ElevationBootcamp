@@ -1,17 +1,12 @@
 const express = require('express')
 const router = express.Router()
-const axios = require('axios');
+
 const {
-    createRecipes,
-    filterData,
-    filterRecipesByCategory,
-    filterRecipesByIngredinets,
     addFavRecipe,
     getFavRecipe,
     deleteFavRecipe
 } = require('./recipes')
 
-const favoriteRecipes = {}
 
 router.post("/favorite/:mealId", (req, res) => {
     let id = req.params.mealId

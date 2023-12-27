@@ -13,16 +13,18 @@ function addFavRecipe(id){
 
 function getFavRecipe(){
     const promises = []
-
+    // Object.keys => list of keys as a list
     for (let fav of Object.keys(favoriteRecipes)) {
         promises.push(axios.get(`https://recipes-goodness-elevation.herokuapp.com/recipes/id/${fav}`)
             .then(function (response) {
+                // data => recipe obj
                 let favRecipes = response.data
                 console.log(favRecipes)
                 return response.data
             })
         )
     }
+    // for each id request return one recipe => one Proimse
     return Promise.all(promises).then(favRecipes => {
         return createRecipes(favRecipes)
     })
@@ -49,13 +51,14 @@ const filterRecipesByIngredinets = (recipes, ingredients) => {
     return recipes
 }
 
-const createRecipes = (data) => {
+const createRecipes = (data, gif) => {
 
     const dataMap = data.map(item => ({
         idMeal: item.idMeal,
         ingredients: item.ingredients,
         title: item.title,
-        thumbnail: item.thumbnail,
+        // thumbnail: item.thumbnail,
+        gif:gif.data.data[7].embed_url,
         href: item.href,
         category: item.strCategory,
         area: areaToCountryMapping[item.strArea.toLowerCase()],

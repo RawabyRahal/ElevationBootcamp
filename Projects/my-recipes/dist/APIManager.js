@@ -3,8 +3,9 @@ class APIManager {
       // this.data = {}
    }
 
-   getAllData(ingredient, gluten, dairy, categories, ingredients) {
-      return $.get(`/recipes/${ingredient}?dairy=${dairy}&gluten=${gluten}&categories=${JSON.stringify(categories)}&ingredients=${JSON.stringify(ingredients)}`)
+   getAllData(ingredient, page, gluten, dairy, categories, ingredients) {
+      // console.log({ingredient, page, gluten, dairy, categories, ingredients})
+      return $.get(`/recipes/${ingredient}?page=${page}&dairy=${dairy}&gluten=${gluten}&categories=${JSON.stringify(categories)}&ingredients=${JSON.stringify(ingredients)}`)
    }
 
    getFavRecipes() {

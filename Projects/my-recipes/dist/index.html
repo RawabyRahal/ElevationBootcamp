@@ -26,7 +26,7 @@
                 <datalist id="ingredients">
                     <script id="multi-input-template" type="text/x-handlebars-template">
                         {{#each ingredients}}
-                            <option value={{this}}></option>
+                            <option class="option" value={{this}}></option>
                         {{/each}}
                     </script>
                 </datalist>
@@ -68,21 +68,18 @@
                     </div>
                     <br><br><button id="favoritebtn" class="btn btn-primary">Favorite Recipes</button>
                 </div>
+
             </div>
         </div>
 
     </div>
-
-    <br /><br />
-
-    <!-- <div id="markedRecipes"></div>
-    <script id="marked-recipes-template" type="text/x-handlebars-template">
-        {{#each markedRecipes}}
-        <div class="card" style="width: 20rem;">
+    <div class="row">
+        <div class="col-12">
+            <button id="next" class="btn btn-primary">Next <i class="fas fa-chevron-right"></i></button>
+            <button id="prev" class="btn btn-primary"> <i class="fas fa-chevron-left"></i> Previous</button>
         </div>
-        {{/each}}
-    </script> -->
-
+    </div>
+    <br /><br />
 
     <div id="recipes"></div>
 
@@ -106,7 +103,9 @@
                       <a style="font-weight: bold; margin-left: 6px;">{{rating}}</a>/5<br>
                     </p>
                     <br>
-                    <img class="imageid" src={{thumbnail}}>
+                    <!-- <img class="imageid" src={{thumbnail}}> -->
+                    <iframe class="imageid" src={{gif}}></iframe>
+
                     <div class="card-body">
                         <div>
                             <p class="card-text2" style="text-align: center;">
@@ -147,6 +146,10 @@
                         </details>
                     </div>
                     <br>
+                    <button class="email" title="Email a friend" href="#" 
+                    onclick="javascript:window.location='mailto:?subject=Check out this recipe! {{title}}&body= You can see the recipe in this video : {{href}} '
+                     + window.location;">Email Us</button>
+
                     <br>
                     <p id="howitworks">HOW IT WORKS</p>
                     <a href="{{href}}" target="_blank">Watch the video

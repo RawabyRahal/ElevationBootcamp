@@ -39,17 +39,18 @@ const usersModule = require('../dist/usersModule')
 
 app.post('/users', function (req, res) {
     const newUser = req.body
-    const username = newUser.username
-    try{
-        usersModule.add(newUser)
-        res.status(201).end()
-    } catch (error) {
-        if (error instanceof InvalidUsernameError){
-            res.status(400).send({ "Error": `${username} is not a valid name` })
-        } else if (error instanceof DuplicatedResourceError){
-            res.status(409).send({ "Error": `User ${username} already exist` })
-        }
+    const userName = newUser.username
+    if (!userName.match(/^[a-z]+$/i)) {
+        res.status(400).send({ "Error": `${userName} is not a valid name` })
+        return
     }
+    let doesExist = users.some(w => w.username === userName)
+    if (doesExist) {
+        res.status(409).send({ "Error": `User ${userName} already exist` })
+        return
+    }
+    users.push(newUser)
+    res.status(201).end()
 })
 
 router.delete('/users/:username', function (req, res) {

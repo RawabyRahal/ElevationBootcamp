@@ -1,20 +1,39 @@
 const apiManager = new APIManager()
 const render = new Renderer()
+
 let currentPage = ""
+let page = 1
 
 const getRecipes = (ingredients = []) => {
-    console.log(ingredients)
-    const ingredient = ingredients.length ? ingredients[0] : searchedIngredient.val()
+
+    // const ingredient = ingredients.length ? ingredients[0] : searchedIngredient.val()
+    const ingredient = ingredients.length ? ingredients[0] : $(".item").html()
+
     const gluten = isGlutenFree.prop("checked");
     const dairy = isDairyFree.prop("checked");
 
-    apiManager.getAllData(ingredient, gluten, dairy, getCheckedCategories(), ingredients.slice(1)).then(function (data) {
+    apiManager.getAllData(ingredient, page, gluten, dairy, getCheckedCategories(), ingredients.slice(1)).then(function (data) {
         render.renderRecipes(data)
     }).catch(function (error) {
         console.error(error.responseJSON.error)
         render.renderError()
     })
 }
+
+$("#next").on("click", function () {
+    currentPage = "search"
+    page++
+    getRecipes()
+})
+
+$("#prev").on("click", function () {
+    currentPage = "search"
+
+    if (page > 1) {
+        page--
+        getRecipes()
+    }
+})
 
 $("#searchbtn").on("click", function () {
     currentPage = "search"
@@ -25,7 +44,6 @@ $("#multisearchbtn").on("click", function () {
     currentPage = "search"
     const multiInput = document.querySelector('multi-input');
     getRecipes(multiInput.getValues());
-
 })
 
 recipesList.on("click", '.imageid', function () {
@@ -77,7 +95,14 @@ recipesList.on("click", ".bookmarkIcon", function () {
 
 $("#favoritebtn").on("click", function () {
     currentPage = "favorite"
-
-    isClikcked =true
     getFavRecipes()
 })
+
+
+// function openMailApplication() {
+//     window.location.href = 'mailto:email@example.com';
+//     window.location.subjetc =
+// }
+// recipesList.on('click', "#btn", function () {
+//     openMailApplication();
+// });
