@@ -25,17 +25,24 @@
                 <input id="ingredientInput" list="ingredients" placeholder="Search..." />
                 <datalist id="ingredients">
                     <script id="multi-input-template" type="text/x-handlebars-template">
-                        {{#each INGREDIENTS_LIST}}
-                            <option class="option" value={{this}}></option>
-                        {{/each}}
-                    </script>
+                  {{#each INGREDIENTS_LIST}}
+                    <option class="option" value={{this}}></option>
+                  {{/each}}
+                </script>
                 </datalist>
             </multi-input>
-            
+
             <button id="multisearchbtn" class="btn btn-primary">
                 <i class="fas fa-search"></i>
             </button>
+            
+            <div class="heart-container">
+                <div id="favoritebtn" class="heart" title="Favorite Recipes">&#9825;</div>
+                <div class="heart-text">Favorites</div>
+            </div>
         </div>
+
+
 
         <div id="filter-container">
             <div class="row">
@@ -67,7 +74,7 @@
                         <label class="form-check-label" for="dairyfree">Dairy Free</label>
                         <i class="fa fa-glass-milk"></i>
                     </div>
-                    <br><br><button id="favoritebtn" class="btn btn-primary">Favorite Recipes</button>
+                    <!-- <br><br><button id="favoritebtn" class="btn btn-primary">Favorite Recipes</button> -->
                 </div>
 
             </div>
@@ -90,18 +97,20 @@
             <div class="col-sm-4">
                 <div class="card" style="width: 20rem;">
                     <div class="icon-container">
-                        <i class="material-icons" title="Email Us" href="#" 
+                        <span class="material-icons" title="Email Us" href="#" 
                         onclick="javascript:window.location='mailto:?subject=Check out this recipe! {{title}}&body= You can see the recipe in this video : {{href}} '
                         + window.location;">email
-                        </i>
-                        <i data-check={{favorite}} title="Save" class="fa fa-bookmark-o bookmarkIcon
+                        </span>
+                        <span data-check={{favorite}} title="Save" class="fa fa-bookmark-o bookmarkIcon
                         {{#if favorite}}
                         favorite
                         {{/if}}
-                        " data-id="{{idMeal}}"></i>
+                        " data-id="{{idMeal}}"></span>
                     </div>
 
-                    <h4 class="card-title" style="text-align: center;">{{title}}</h4>
+                    <h4 class="card-title" 
+                    style="text-align: center;font-family: 'Alex Brush',cursive; font-weight:  bold;
+                    ">{{title}}</h4>
 
                     <p class="card-text2">
                       <!-- <span class="category-label">Satisfaction: </span> -->

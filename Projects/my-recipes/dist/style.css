@@ -33,6 +33,28 @@ body {
   justify-content: center;
   align-items: center;
   margin-bottom: 20px;
+  margin-left: 300px;
+  width: 720px;
+}
+#multisearchbtn {
+  margin-left: 10px;
+}
+
+
+.heart-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* margin-left: auto; */
+  margin-left: 320px;
+  /* margin-top: -10px; */
+}
+.heart {
+  font-size: 35px;
+}
+.heart-text {
+  margin-top: -10px;
+  font-size: 12px;
 }
 
 #filter-container {
@@ -50,7 +72,6 @@ body {
   border-radius: 5px 0 0 5px;
   outline: none;
   transition: width 0.3s ease-in-out;
-  /* Added transition for width */
 }
 
 #searchbtn {
@@ -61,12 +82,10 @@ body {
   border-radius: 0 5px 5px 0;
   cursor: pointer;
   transition: background-color 0.3s ease-in-out;
-  /* Added transition for background-color */
 }
 
 #search:hover {
   width: 250px;
-  /* Increase width on hover */
 }
 
 #searchbtn:hover {
@@ -83,13 +102,14 @@ a {
 #howitworks {
   font-size: 15px;
   font-weight: bold;
-  color: darkgreen;
-
+  color: black;
+  font-family: 'Alex Brush',cursive;
   margin-bottom: 5px;
 }
 
 .card-title {
   padding-top: 20px;
+ 
 }
 
 .category-label {
@@ -107,7 +127,7 @@ a {
   /* font-weight: bold; */
   font-size: 11px;
   /* display: flex; */
-    /* justify-content: space-between; */
+  /* justify-content: space-between; */
 }
 
 .form-check-label {
@@ -190,16 +210,19 @@ details>summary {
   justify-items: end;
   margin-left: 230px;
 }
+
 .bookmarkIcon {
   color: black;
   padding-top: 20px;
   margin-left: 15px;
 }
+
 .material-icons {
-  color: black;
-  padding-top: 17px;
+  color: rgb(213, 43, 43);
+  padding-top: 16px;
 }
-#favoritebtn {
+
+/* #favoritebtn {
   background-color: burlywood;
   color: white;
   border: none;
@@ -210,11 +233,11 @@ details>summary {
   font-size: 11px;
   cursor: pointer;
   margin-left: 10px;
-}
+} */
 
-#favoritebtn:hover {
+/* #favoritebtn:hover {
   background-color: #45a049;
-}
+} */
 
 .favorite {
   color: red !important;
@@ -222,8 +245,9 @@ details>summary {
 
 
 
-#next, #prev {
-  background-color: grey;
+#next,
+#prev {
+  background-color: rgb(123, 118, 118);
   color: white;
   border: none;
   padding: 5px 15px;
@@ -234,10 +258,20 @@ details>summary {
   float: right;
 }
 
-#next:hover, #prev:hover {
+#next:hover,
+#prev:hover {
   background-color: 45a049;
 }
 
 #prev {
   margin-right: 10px;
+}
+
+.card {
+  /* width: 320px;
+  height: 460px;
+  overflow: hidden; */
+  transition: all .2s ease-out;
+  box-shadow: 0 5px 30px rgba(14, 21, 47, 0.4);
+  position: relative;
 }

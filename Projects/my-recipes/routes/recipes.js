@@ -23,7 +23,8 @@ function getFavRecipe() {
 
                 // data => recipe obj
                 favRecipes = response.data
-                favRecipesIngredients = response.data.ingredients
+                favRecipesIngredients = response.data.title
+                console.log(favRecipesIngredients)
 
                 return response.data
             })
