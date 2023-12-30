@@ -188,7 +188,9 @@ a {
 
 .instruction-text {
   font-size: 11px;
-  padding: 15px;
+  padding-right: 30px;
+  padding-left: 30px;
+
 }
 
 .summary {}
