@@ -11,12 +11,11 @@ const {
 } = require('./recipes')
 
 
-const dairyIngredients = consts.dairyIngredients
-const glutenIngredients = consts.glutenIngredients
+const dairyIngredients = consts.DAIRY_INGREDIENTS
+const glutenIngredients = consts.GLUTEN_FREE_INGREDIENTS
 
 const RECIPE_API = consts.RECIPE_API
 
-// let page = 1;
 const limit = 3;
 
 // Retrieve data
@@ -31,7 +30,7 @@ router.get('/:ingredient', function (req, res) {
     let page = req.query.page
     
     const recipePromise = axios.get(RECIPE_API + ingredient)
-    const giphyPromise = axios.get(`https://api.giphy.com/v1/gifs/search?api_key=ajZFNBnAjLpEAIaJkhqVhTwdqPDPDELc&q=food&limit=25&offset=0&rating=g&lang=en&bundle=messaging_non_clips`)
+    const giphyPromise = axios.get(`https://api.giphy.com/v1/gifs/search?api_key=ajZFNBnAjLpEAIaJkhqVhTwdqPDPDELc&q=${ingredient}&limit=25&offset=0&rating=g&lang=en&bundle=messaging_non_clips`)
 
     Promise.all([recipePromise, giphyPromise])
         .then(function (response) {
@@ -63,10 +62,14 @@ router.get('/:ingredient', function (req, res) {
                 page++
                 
                 recipes = createRecipes(recipes, gif)
+                totalPages = Math.ceil((recipes.length)/limit);
                 // console.log(recipes.map(rec => rec.title))
                 const pagesResult = recipes.slice(startIndex, endIndex)
                 // console.log(pagesResult.map(rec => rec.title))
-                res.status(200).send(pagesResult)
+                res.status(200).send({
+                    recipes: pagesResult,
+                    totalPages: totalPages
+                });
             }
         });
 })

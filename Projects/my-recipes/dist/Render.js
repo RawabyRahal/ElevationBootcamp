@@ -1,10 +1,10 @@
-const source = recipesTemplate.html()
+const source = RECIPES_TEMPLATE.html()
 const templateRecipes = Handlebars.compile(source)
 
-const sourceCategories = categoriesTemplate.html()
+const sourceCategories = CATEGORIES_TEMPLATE.html()
 const templateCategories = Handlebars.compile(sourceCategories)
 
-const sourceMultiInput = multiInputTemplate.html();
+const sourceMultiInput = MULTI_INPUT_TEMPLATE.html();
 const templateIngredients = Handlebars.compile(sourceMultiInput);
 
 Handlebars.registerHelper('times', function(n, block) {
@@ -27,24 +27,24 @@ class Renderer {
     }
 
     renderRecipes = function (data) {
-        recipesList.empty()
+        RECIPES_LIST.empty()
         let newHtml = templateRecipes({ recipes: data })
-        recipesList.append(newHtml)
+        RECIPES_LIST.append(newHtml)
     }
 
     renderError = function () {
-        recipesList.empty()
-        recipesList.append("<div class='notfound' style='color: red; text-align:center'>The searched ingredient could not be found.</div>");
+        RECIPES_LIST.empty()
+        RECIPES_LIST.append("<div class='notfound' style='color: red; text-align:center'>The searched ingredient could not be found.</div>");
     }
 
     renderCategories = function () {
-        let newHtml = templateCategories({ categories })
-        categoriesList.append(newHtml)
+        let newHtml = templateCategories({ CATEGORIES })
+        CATEGORIES_LIST.append(newHtml)
     }
 
     renderMultiInput = function () {
-        let newHtml = templateIngredients({ ingredients })
-        ingredient.append(newHtml)
+        let newHtml = templateIngredients({ INGREDIENTS_LIST })
+        INGREDIENTS.append(newHtml)
     }
 }
 

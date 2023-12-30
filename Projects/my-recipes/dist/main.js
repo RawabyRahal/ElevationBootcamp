@@ -3,50 +3,61 @@ const render = new Renderer()
 
 let currentPage = ""
 let page = 1
-
+const multiInput = document.querySelector('multi-input');
+let searchedIngredients
 const getRecipes = (ingredients = []) => {
+    console.log(ingredients)
+    const ingredient = ingredients.length ? ingredients[0] : SEARCHED_INGREDIENT.val()
+    // const ingredient = ingredients.length ? ingredients[0] : $(".item").html()
 
-    // const ingredient = ingredients.length ? ingredients[0] : searchedIngredient.val()
-    const ingredient = ingredients.length ? ingredients[0] : $(".item").html()
-
-    const gluten = isGlutenFree.prop("checked");
-    const dairy = isDairyFree.prop("checked");
+    const gluten = IS_GLUTEN_FREE.prop(CHECKED);
+    const dairy = IS_DAIRY_FREE.prop(CHECKED);
 
     apiManager.getAllData(ingredient, page, gluten, dairy, getCheckedCategories(), ingredients.slice(1)).then(function (data) {
-        render.renderRecipes(data)
+        render.renderRecipes(data.recipes)
+        updatePaginationButtons(data.totalPages);
+
     }).catch(function (error) {
         console.error(error.responseJSON.error)
         render.renderError()
     })
 }
 
-$("#next").on("click", function () {
+$(NEXT_BTN).on("click", function () {
     currentPage = "search"
     page++
-    getRecipes()
+    getRecipes(searchedIngredients)
+    updatePaginationButtons()
 })
 
-$("#prev").on("click", function () {
+$(PREV_BTN).on("click", function () {
     currentPage = "search"
-
     if (page > 1) {
         page--
-        getRecipes()
+        getRecipes(searchedIngredients)
+        updatePaginationButtons()
     }
 })
+function updatePaginationButtons(totalPages) {
+    const minPages = 1
 
-$("#searchbtn").on("click", function () {
+    $(NEXT_BTN).prop("disabled", page >= totalPages);
+    $(PREV_BTN).prop("disabled", page <= minPages);
+}
+
+$(SEARCH_BTN).on("click", function () {
     currentPage = "search"
-    getRecipes()
+    getRecipes(multiInput.getValues())
 })
 
-$("#multisearchbtn").on("click", function () {
+$(MULTI_SEARCH_BTN).on("click", function () {
     currentPage = "search"
-    const multiInput = document.querySelector('multi-input');
+    page = 1
+    searchedIngredients = multiInput.getValues()
     getRecipes(multiInput.getValues());
 })
 
-recipesList.on("click", '.imageid', function () {
+RECIPES_LIST.on("click", '.imageid', function () {
     const ingID = $(this).closest(".card").find("li:first").text()
     alert("The First Ingredient for this Recipe is: " + ingID)
 })
@@ -54,8 +65,8 @@ recipesList.on("click", '.imageid', function () {
 const getCheckedCategories = () => {
     const checkedCategories = []
 
-    for (let category of categories) {
-        if ($("#" + category).prop("checked"))
+    for (let category of CATEGORIES) {
+        if ($("#" + category).prop(CHECKED))
             checkedCategories.push(category)
     }
     return checkedCategories
@@ -71,7 +82,7 @@ const getFavRecipes = () => {
 
 const markedRecipes = []
 
-recipesList.on("click", ".bookmarkIcon", function () {
+RECIPES_LIST.on("click", ".bookmarkIcon", function () {
     const recipeId = $(this).data('id');
 
     if ($(this).data('check')) {
@@ -97,12 +108,3 @@ $("#favoritebtn").on("click", function () {
     currentPage = "favorite"
     getFavRecipes()
 })
-
-
-// function openMailApplication() {
-//     window.location.href = 'mailto:email@example.com';
-//     window.location.subjetc =
-// }
-// recipesList.on('click', "#btn", function () {
-//     openMailApplication();
-// });

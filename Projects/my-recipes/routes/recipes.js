@@ -2,35 +2,50 @@ const consts = require('../consts');
 const { faker } = require('@faker-js/faker');
 const axios = require('axios');
 
-const areaToCountryMapping = consts.areaToCountryMapping
-const countryCodes = consts.countryCodes
+const areaToCountryMapping = consts.AREA_TO_COUNTRY_MAPPING
+const countryCodes = consts.COUNTRY_CODES
 
 const favoriteRecipes = {}
 
-function addFavRecipe(id){
+function addFavRecipe(id) {
     favoriteRecipes[id] = true
 }
 
-function getFavRecipe(){
+function getFavRecipe() {
+
     const promises = []
+    let favRecipesIngredients
+    let favRecipes
     // Object.keys => list of keys as a list
     for (let fav of Object.keys(favoriteRecipes)) {
         promises.push(axios.get(`https://recipes-goodness-elevation.herokuapp.com/recipes/id/${fav}`)
             .then(function (response) {
+
                 // data => recipe obj
-                let favRecipes = response.data
-                console.log(favRecipes)
+                favRecipes = response.data
+                favRecipesIngredients = response.data.ingredients
+
                 return response.data
             })
         )
     }
+    const giphyPromise = axios.get(`https://api.giphy.com/v1/gifs/search?api_key=ajZFNBnAjLpEAIaJkhqVhTwdqPDPDELc&q=${favRecipesIngredients}`)
+
+    console.log("**************************************************")
+
     // for each id request return one recipe => one Proimse
-    return Promise.all(promises).then(favRecipes => {
-        return createRecipes(favRecipes)
+    return Promise.all(promises.concat(giphyPromise)).then(function (response) {
+
+        // let recipes = response.data.results
+        // console.log(response)
+        let recipes = response.slice(0, -1)
+        let gif = response.pop()
+        
+        return createRecipes(recipes , gif)
     })
 }
 
-function deleteFavRecipe(id){
+function deleteFavRecipe(id) {
     delete favoriteRecipes[id]
 }
 
@@ -58,14 +73,14 @@ const createRecipes = (data, gif) => {
         ingredients: item.ingredients,
         title: item.title,
         // thumbnail: item.thumbnail,
-        gif:gif.data.data[7].embed_url,
+        gif: gif.data.data[7].embed_url,
         href: item.href,
         category: item.strCategory,
         area: areaToCountryMapping[item.strArea.toLowerCase()],
         countryCode: countryCodes[item.strArea.toLowerCase()],
         chefName: faker.name.firstName() + " " + faker.name.lastName(),
         rating: faker.number.int({ min: 1, max: 5 }),
-        instruction:item.strInstructions,
+        instruction: item.strInstructions,
         favorite: favoriteRecipes[item.idMeal] !== undefined
     }));
 
@@ -74,8 +89,8 @@ const createRecipes = (data, gif) => {
 
 module.exports = {
     createRecipes,
-    filterData, 
-    filterRecipesByCategory, 
+    filterData,
+    filterRecipesByCategory,
     filterRecipesByIngredinets,
     addFavRecipe,
     getFavRecipe,

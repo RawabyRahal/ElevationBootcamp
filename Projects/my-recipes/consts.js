@@ -3,14 +3,14 @@
 
 const RECIPE_API = `https://recipes-goodness-elevation.herokuapp.com/recipes/ingredient/`
 
-const dairyIngredients = [
+const DAIRY_INGREDIENTS = [
     "Cream", "Cheese", "Milk", "Butter", "Creme", "Ricotta", "Mozzarella", "Custard", "Cream Cheese"
 ]
-const glutenIngredients = [
+const GLUTEN_FREE_INGREDIENTS = [
     "Flour", "Bread", "spaghetti", "Biscuits", "Beer"
 ]
 
-const areaToCountryMapping = {
+const AREA_TO_COUNTRY_MAPPING = {
     'italian': 'Italy',
     'jamaican': 'Jamaica',
     'french': 'France',
@@ -24,7 +24,7 @@ const areaToCountryMapping = {
     'indian': 'India',
 };
 
-const countryCodes = {
+const COUNTRY_CODES = {
     'italian': 'it',
     'jamaican': 'jm',
     'french': 'fr',
@@ -42,9 +42,9 @@ const categories = [
     "Vegetarian", "Chicken", "Miscellaneous", "Beef", "Seafood", "Pork", "Dessert"
 ]
 
-module.exports.dairyIngredients = dairyIngredients
-module.exports.glutenIngredients = glutenIngredients
-module.exports.areaToCountryMapping = areaToCountryMapping
-module.exports.countryCodes = countryCodes
-module.exports.categories = categories
+module.exports.DAIRY_INGREDIENTS = DAIRY_INGREDIENTS
+module.exports.GLUTEN_FREE_INGREDIENTS = GLUTEN_FREE_INGREDIENTS
+module.exports.AREA_TO_COUNTRY_MAPPING = AREA_TO_COUNTRY_MAPPING
+module.exports.COUNTRY_CODES = COUNTRY_CODES
 module.exports.RECIPE_API = RECIPE_API
+module.exports.categories = categories

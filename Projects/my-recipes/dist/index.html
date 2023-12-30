@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link href="https://cdn.bootcss.com/flag-icon-css/2.8.0/css/flag-icon.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
-
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
 <body>
@@ -25,12 +25,13 @@
                 <input id="ingredientInput" list="ingredients" placeholder="Search..." />
                 <datalist id="ingredients">
                     <script id="multi-input-template" type="text/x-handlebars-template">
-                        {{#each ingredients}}
+                        {{#each INGREDIENTS_LIST}}
                             <option class="option" value={{this}}></option>
                         {{/each}}
                     </script>
                 </datalist>
             </multi-input>
+            
             <button id="multisearchbtn" class="btn btn-primary">
                 <i class="fas fa-search"></i>
             </button>
@@ -42,7 +43,7 @@
                     <p class="card-text">Categories</p>
                     <div id="categories">
                         <script id="categories-template" type="text/x-handlebars-template">
-                            {{#each categories}}
+                            {{#each CATEGORIES}}
                                 <div class="form-check">
                                 <input
                                     class="form-check-input"
@@ -88,12 +89,17 @@
             {{#each recipes}}
             <div class="col-sm-4">
                 <div class="card" style="width: 20rem;">
-
-                    <i data-check={{favorite}} class="fa fa-bookmark-o bookmarkIcon
-                    {{#if favorite}}
+                    <div class="icon-container">
+                        <i class="material-icons" title="Email Us" href="#" 
+                        onclick="javascript:window.location='mailto:?subject=Check out this recipe! {{title}}&body= You can see the recipe in this video : {{href}} '
+                        + window.location;">email
+                        </i>
+                        <i data-check={{favorite}} title="Save" class="fa fa-bookmark-o bookmarkIcon
+                        {{#if favorite}}
                         favorite
-                    {{/if}}
-                    " data-id="{{idMeal}}"></i>
+                        {{/if}}
+                        " data-id="{{idMeal}}"></i>
+                    </div>
 
                     <h4 class="card-title" style="text-align: center;">{{title}}</h4>
 
@@ -146,10 +152,7 @@
                         </details>
                     </div>
                     <br>
-                    <button class="email" title="Email a friend" href="#" 
-                    onclick="javascript:window.location='mailto:?subject=Check out this recipe! {{title}}&body= You can see the recipe in this video : {{href}} '
-                     + window.location;">Email Us</button>
-
+                    
                     <br>
                     <p id="howitworks">HOW IT WORKS</p>
                     <a href="{{href}}" target="_blank">Watch the video

@@ -1,18 +1,24 @@
 // consts variables
 
-const searchedIngredient = $("#search")
-const isGlutenFree = $("#glutenfree")
-const isDairyFree = $("#dairyfree")
-const recipesTemplate = $("#recipes-template")
-const recipesList = $("#recipes")
-const categoriesList = $("#categories")
-const categoriesTemplate = $("#categories-template")
-const multiInputTemplate = $("#multi-input-template")
-const ingredient = $("#ingredients")
-const markedRecipesTemplate = $("#marked-recipes-template")
+const SEARCHED_INGREDIENT = $("#ingredientInput")
+const IS_GLUTEN_FREE = $("#glutenfree")
+const IS_DAIRY_FREE = $("#dairyfree")
+const INGREDIENTS = $("#ingredients")
+
+const NEXT_BTN = "#next"
+const PREV_BTN = "#prev"
+const CHECKED = "checked"
+const SEARCH_BTN = "#searchbtn"
+const MULTI_SEARCH_BTN= "#multisearchbtn"
+
+const RECIPES_LIST = $("#recipes")
+const CATEGORIES_LIST = $("#categories")
+const RECIPES_TEMPLATE = $("#recipes-template")
+const CATEGORIES_TEMPLATE = $("#categories-template")
+const MULTI_INPUT_TEMPLATE = $("#multi-input-template")
 
 
-const categories = [
+const CATEGORIES = [
     "Vegetarian", "Chicken", "Miscellaneous", "Beef", "Seafood", "Pork", "Dessert"
 ]
 const ingredients2 = [
@@ -426,7 +432,7 @@ const ingredients3 = [
 // console.log(arrayOfWords.length)
 // console.log(JSON.stringify(arrayOfWords))
 
-const ingredients = [
+const INGREDIENTS_LIST = [
     "penne",
     "rigate",
     "olive",
