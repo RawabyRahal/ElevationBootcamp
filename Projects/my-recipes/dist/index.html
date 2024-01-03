@@ -35,7 +35,7 @@
             <button id="multisearchbtn" class="btn btn-primary">
                 <i class="fas fa-search"></i>
             </button>
-            
+
             <div class="heart-container">
                 <div id="favoritebtn" class="heart" title="Favorites Recipes">&#9825;</div>
                 <div class="heart-text">Favorites</div>
@@ -97,21 +97,22 @@
             <div class="col-sm-4">
                 <div class="card" style="width: 20rem;">
                     <div class="icon-container">
-                        <span class="material-icons" title="Email Us" href="#" 
+                        <span class="material-icons" title="Email Us" href="#"
                         onclick="javascript:window.location='mailto:?subject=Check out this recipe! {{title}}&body= You can see the recipe in this video : {{href}} '
-                        + window.location;">email
+                        + window.location;">
+                        email
                         </span>
                         <span data-check={{favorite}} title="Save" class="fa fa-bookmark-o bookmarkIcon
                         {{#if favorite}}
                         favorite
                         {{/if}}
-                        " data-id="{{idMeal}}"></span>
+                        " data-id="{{idMeal}}">
+                        </span>
                     </div>
-
+                    <br>
                     <h4 class="card-title" 
                     style="color: darkgreen;text-align: center;font-family: 'Alex Brush',cursive; font-weight:  bold;
                     ">{{title}}</h4>
-
                     <p class="card-text2">
                       <!-- <span class="category-label">Satisfaction: </span> -->
                       {{#times rating}}{{/times}}

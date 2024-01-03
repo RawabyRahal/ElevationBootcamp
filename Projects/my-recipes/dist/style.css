@@ -48,9 +48,11 @@ body {
   /* margin-left: auto; */
   margin-left: 320px;
   /* margin-top: -10px; */
+  pointer-events: auto;
 }
 .heart {
   font-size: 35px;
+
 }
 .heart-text {
   margin-top: -10px;

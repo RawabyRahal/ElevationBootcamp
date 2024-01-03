@@ -14,7 +14,7 @@ function addFavRecipe(id) {
 function getFavRecipe() {
 
     const promises = []
-    let favRecipesIngredients
+    let favRecipesTitle
     let favRecipes
     // Object.keys => list of keys as a list
     for (let fav of Object.keys(favoriteRecipes)) {
@@ -23,18 +23,19 @@ function getFavRecipe() {
 
                 // data => recipe obj
                 favRecipes = response.data
-                favRecipesIngredients = response.data.title
-                console.log(favRecipesIngredients)
+                favRecipesTitle = response.data.title
+                console.log(favRecipesTitle)
 
                 return response.data
             })
         )
     }
-    const giphyPromise = axios.get(`https://api.giphy.com/v1/gifs/search?api_key=ajZFNBnAjLpEAIaJkhqVhTwdqPDPDELc&q=${favRecipesIngredients}`)
+    const giphyPromise = axios.get(`https://api.giphy.com/v1/gifs/search?api_key=ajZFNBnAjLpEAIaJkhqVhTwdqPDPDELc&q=${favRecipesTitle}&limit=25&offset=0&rating=g&lang=en&bundle=messaging_non_clips`)
+    console.log(favRecipesTitle)
 
     console.log("**************************************************")
 
-    // for each id request return one recipe => one Proimse
+    // for each ID request it returns one recipe => one Promise
     return Promise.all(promises.concat(giphyPromise)).then(function (response) {
 
         // let recipes = response.data.results
