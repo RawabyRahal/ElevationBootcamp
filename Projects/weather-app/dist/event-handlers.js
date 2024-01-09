@@ -3,7 +3,9 @@ const weatherManager = new WeatherManager()
 const weatherRenderer = new WeatherRenderer()
 
 $(SEARCH_BTN).on("click", function () {
-    weatherController.getWeather()
+    if (SEARCHED_CITY.val().length) {
+        weatherController.getWeather()
+    }
 })
 
 WEATHER_LIST.on('click', '.fa-plus', function () {

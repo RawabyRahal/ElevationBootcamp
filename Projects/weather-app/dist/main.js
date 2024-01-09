@@ -16,6 +16,7 @@ class WeatherController {
         } catch (error) {
             console.error(error)
             this.renderer.renderError()
+            SEARCHED_CITY.val('')
         }
     }
 

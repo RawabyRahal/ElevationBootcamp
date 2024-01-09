@@ -22,7 +22,7 @@ class WeatherRenderer {
 
 
     renderError() {
-        WEATHER_LIST.empty()
+        // WEATHER_LIST.empty()
         WEATHER_LIST.append("<br><div class='notfound' style='color: red; text-align:center ;margin-right:50px'>The searched city could not be found.</div>");
     }
 }
