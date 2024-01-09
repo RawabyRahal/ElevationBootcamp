@@ -18,7 +18,7 @@ app.use('/recipes', recipesAPI)
 app.use('/', favoriteRecipesAPI)
 
 
-const port = 8585
+const port = 8080
 app.listen(port, function () {
     console.log(`Server running on port`)
 })

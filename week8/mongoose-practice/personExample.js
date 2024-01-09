@@ -48,11 +48,11 @@ let p5 = new Person({ firstName: "Shoober", lastName: "T", age: 44 })
 //     console.log(person)
 // })
 
-// Person.findByIdAndUpdate("6593fcf8560976197f28b94e", {$set:{ age: 70 }}, {new : true}).then( function (person) {
-//     console.log(person)
-// })
-
-Person.findByIdAndDelete("6593fcf8560976197f28b94e").then((person) => {
-    // Person.findById("6593fc654ae98f65d7bd8138").then(person => console.log(person))
+Person.findByIdAndUpdate("6596bd1b00508dfe32418b78", {$set:{ age: 80 }}).then( function (person) {
     console.log(person)
 })
+
+// Person.findByIdAndDelete("6593fcf8560976197f28b94e").then((person) => {
+//     // Person.findById("6593fc654ae98f65d7bd8138").then(person => console.log(person))
+//     console.log(person)
+// })

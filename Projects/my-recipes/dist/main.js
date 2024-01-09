@@ -5,11 +5,9 @@ let currentPage = ""
 let page = 1
 const multiInput = document.querySelector('multi-input');
 let searchedIngredients
-const getRecipes = (ingredients = []) => {
-    console.log(ingredients)
-    const ingredient = ingredients.length ? ingredients[0] : SEARCHED_INGREDIENT.val()
-    // const ingredient = ingredients.length ? ingredients[0] : $(".item").html()
 
+const getRecipes = (ingredients = []) => {
+    const ingredient = ingredients.length ? ingredients[0] : SEARCHED_INGREDIENT.val()
     const gluten = IS_GLUTEN_FREE.prop(CHECKED);
     const dairy = IS_DAIRY_FREE.prop(CHECKED);
 
